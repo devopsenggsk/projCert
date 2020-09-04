@@ -11,12 +11,12 @@ echo "pre_version="$pre_version
 
 if [ $pre_version != $version ]
 then
-  docker build -t phpwebsite:$version .
+  sudo docker build -t phpwebsite:$version .
 
-  docker stop phpwebsite
-  docker rm phpwebsite
+  sudo docker stop phpwebsite
+  sudo docker rm phpwebsite
 
-  docker run --name phpwebsite -p 9090:80 -d --restart=unless-stopped phpwebsite:$version
+  sudo docker run --name phpwebsite -p 9090:80 -d --restart=unless-stopped phpwebsite:$version
 
 fi
 
